@@ -2,13 +2,14 @@ project(PARTICLE_FILTER)
 
 cmake_minimum_required (VERSION 3.5)
 
-add_definitions(-std=c++11)
+add_definitions(-std=c++1z)
 
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-set(sources src/particle_filter.cpp src/main.cpp)
+file(GLOB_RECURSE sources src/pf/*.cpp src/*.h)
 
+include_directories("${CMAKE_SOURCE_DIR}/src")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
 
